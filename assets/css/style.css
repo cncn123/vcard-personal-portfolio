@@ -109,11 +109,242 @@
   --transition-1: 0.25s ease;
   --transition-2: 0.5s ease-in-out;
 
+  /* theming */
+  --navbar-bg: hsla(240, 1%, 17%, 0.75);
+  --overlay-bg: hsl(0, 0%, 5%);
+
+  /* scrollbar */
+  --scrollbar-thumb-bg: hsla(0, 0%, 100%, 0.1);
+  --scrollbar-thumb-bg-hover: hsla(0, 0%, 100%, 0.15);
+  --scrollbar-thumb-inset: hsla(0, 0%, 100%, 0.11);
 }
 
 
 
 
+
+/* Light / Bright theme (Liquid Glass) */
+html[data-theme="light"] {
+
+  /* gradients – translucent glass fills */
+  --bg-gradient-onyx: linear-gradient(
+    135deg,
+    hsla(210, 60%, 92%, 0.55) 0%,
+    hsla(0, 0%, 100%, 0.70) 100%
+  );
+  --bg-gradient-jet: linear-gradient(
+    135deg,
+    hsla(210, 60%, 95%, 0.50) 0%,
+    hsla(0, 0%, 100%, 0.60) 100%
+  );
+  --bg-gradient-yellow-1: linear-gradient(
+    to bottom right,
+    hsl(45, 100%, 72%) 0%,
+    hsla(36, 100%, 69%, 0) 50%
+  );
+  --bg-gradient-yellow-2: linear-gradient(
+    135deg,
+    hsla(45, 100%, 72%, 0.251) 0%,
+    hsla(35, 100%, 68%, 0) 59.86%
+  ), hsla(0, 0%, 100%, 0.80);
+  --border-gradient-onyx: linear-gradient(
+    135deg,
+    hsla(0, 0%, 100%, 0.90) 0%,
+    hsla(0, 0%, 100%, 0.40) 100%
+  );
+  --text-gradient-yellow: hsl(45, 100%, 72%);
+
+  /* solid – high-contrast text on bright bg */
+  --jet: hsla(220, 20%, 80%, 0.50);
+  --onyx: hsla(0, 0%, 100%, 0.60);
+  --eerie-black-1: hsla(0, 0%, 100%, 0.75);
+  --eerie-black-2: hsla(0, 0%, 100%, 0.55);
+  --smoky-black: hsl(220, 30%, 96%);
+  --white-1: hsl(220, 25%, 12%);
+  --white-2: hsl(220, 25%, 8%);
+  --orange-yellow-crayola: hsl(25, 95%, 53%);
+  --vegas-gold: hsl(25, 80%, 45%);
+  --light-gray: hsl(220, 15%, 35%);
+  --light-gray-70: hsla(220, 15%, 35%, 0.65);
+  --bittersweet-shimmer: hsl(0, 60%, 50%);
+
+  /* glass surfaces */
+  --navbar-bg: hsla(0, 0%, 100%, 0.60);
+  --overlay-bg: hsla(220, 30%, 10%, 0.50);
+
+  /* soft shadows for glass */
+  --shadow-1: 0 4px 16px hsla(220, 40%, 50%, 0.10);
+  --shadow-2: 0 8px 32px hsla(220, 40%, 50%, 0.08);
+  --shadow-3: 0 12px 40px hsla(220, 40%, 50%, 0.08);
+  --shadow-4: 0 16px 48px hsla(220, 40%, 50%, 0.06);
+  --shadow-5: 0 20px 64px hsla(220, 40%, 50%, 0.10);
+
+  /* scrollbar */
+  --scrollbar-thumb-bg: hsla(220, 30%, 50%, 0.15);
+  --scrollbar-thumb-bg-hover: hsla(220, 30%, 50%, 0.25);
+  --scrollbar-thumb-inset: hsla(220, 30%, 50%, 0.08);
+}
+
+/* Light mode: glassmorphism for sidebar & article cards */
+html[data-theme="light"] .sidebar,
+html[data-theme="light"] article {
+  background: hsla(0, 0%, 100%, 0.45);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid hsla(0, 0%, 100%, 0.70);
+}
+
+/* Light mode: glassmorphism for service, content & blog cards */
+html[data-theme="light"] .service-item,
+html[data-theme="light"] .content-card,
+html[data-theme="light"] .blog-post-item > a,
+html[data-theme="light"] .testimonials-modal {
+  background: hsla(0, 0%, 100%, 0.50);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid hsla(0, 0%, 100%, 0.65);
+}
+
+html[data-theme="light"] .service-item::before,
+html[data-theme="light"] .content-card::before,
+html[data-theme="light"] .blog-post-item > a::before {
+  background: transparent;
+}
+
+/* Light mode: glass navbar */
+html[data-theme="light"] .navbar {
+  background: hsla(0, 0%, 100%, 0.55);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid hsla(0, 0%, 100%, 0.65);
+}
+
+/* Light mode: icon-box */
+html[data-theme="light"] .icon-box {
+  background: hsla(210, 60%, 95%, 0.70);
+  box-shadow: 0 2px 8px hsla(220, 40%, 50%, 0.10);
+}
+
+html[data-theme="light"] .icon-box::before {
+  background: hsla(0, 0%, 100%, 0.80);
+}
+
+/* Light mode: form inputs */
+html[data-theme="light"] .form-input {
+  background: hsla(0, 0%, 100%, 0.60);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid hsla(220, 20%, 80%, 0.60);
+  color: hsl(220, 25%, 12%);
+}
+
+html[data-theme="light"] .form-input::placeholder {
+  color: hsla(220, 15%, 40%, 0.70);
+}
+
+/* Light mode: filter select */
+html[data-theme="light"] .filter-select,
+html[data-theme="light"] .select-list,
+html[data-theme="light"] .select-item button {
+  background: hsla(0, 0%, 100%, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Light mode: skill progress bar */
+html[data-theme="light"] .skill-progress-bg {
+  background: hsla(220, 20%, 80%, 0.40);
+}
+
+/* Light mode: timeline decorations */
+html[data-theme="light"] .timeline-item::after {
+  box-shadow: 0 0 0 4px hsla(220, 20%, 80%, 0.40);
+}
+
+/* Light mode: avatar box gradient */
+html[data-theme="light"] .avatar-box {
+  background: linear-gradient(135deg, hsla(210, 60%, 92%, 0.6) 0%, hsla(0, 0%, 100%, 0.8) 100%);
+}
+
+/* Light mode: testimonials avatar box */
+html[data-theme="light"] .testimonials-avatar-box,
+html[data-theme="light"] .modal-avatar-box {
+  background: linear-gradient(135deg, hsla(210, 60%, 92%, 0.6) 0%, hsla(0, 0%, 100%, 0.8) 100%);
+}
+
+/* Light mode: project icon box */
+html[data-theme="light"] .project-item-icon-box {
+  background: hsla(0, 0%, 100%, 0.80);
+}
+
+/* Light mode: modal close btn */
+html[data-theme="light"] .modal-close-btn {
+  background: hsla(220, 20%, 90%, 0.70);
+}
+
+/* Light mode: form btn */
+html[data-theme="light"] .form-btn {
+  background: linear-gradient(135deg, hsl(25, 95%, 53%) 0%, hsl(210, 85%, 50%) 100%);
+  color: hsl(0, 0%, 100%);
+}
+
+html[data-theme="light"] .form-btn::before {
+  background: transparent;
+}
+
+html[data-theme="light"] .form-btn:hover {
+  background: linear-gradient(135deg, hsl(25, 95%, 48%) 0%, hsl(210, 85%, 45%) 100%);
+}
+
+html[data-theme="light"] .form-btn:disabled {
+  background: hsla(220, 15%, 70%, 0.50);
+  color: hsla(220, 15%, 40%, 0.70);
+}
+
+html[data-theme="light"] .form-btn:disabled::before {
+  background: transparent;
+}
+
+html[data-theme="light"] .form-btn:disabled:hover {
+  background: hsla(220, 15%, 70%, 0.50);
+}
+
+html[data-theme="light"] .form-btn:disabled:hover::before {
+  background: transparent;
+}
+
+/* Light mode: title badge */
+html[data-theme="light"] .info-content .title {
+  background: hsla(220, 40%, 50%, 0.10);
+  color: hsl(220, 25%, 30%);
+}
+
+/* Light mode: info_more-btn glass */
+html[data-theme="light"] .info_more-btn {
+  background: hsla(0, 0%, 100%, 0.60);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid hsla(0, 0%, 100%, 0.50);
+}
+
+html[data-theme="light"] .info_more-btn::before {
+  background: transparent;
+}
+
+/* Light mode: active nav link uses accent gradient */
+html[data-theme="light"] .navbar-link.active {
+  color: hsl(25, 95%, 53%);
+}
+
+/* Glassmorphism backdrop – multi-blob radial gradients (ui-ux-pro-max style) */
+html[data-theme="light"] body {
+  background:
+    radial-gradient(ellipse 80% 80% at 50% -20%, rgba(37, 99, 235, 0.30), transparent),
+    radial-gradient(ellipse 50% 50% at 80% 50%, rgba(249, 115, 22, 0.15), transparent),
+    radial-gradient(ellipse 50% 50% at 20% 80%, rgba(59, 130, 246, 0.20), transparent),
+    hsl(220, 30%, 96%);
+  background-attachment: fixed;
+}
 
 /*-----------------------------------*\
   #RESET
@@ -148,7 +379,7 @@ input, textarea {
 
 ::selection {
   background: var(--orange-yellow-crayola);
-  color: var(--smoky-black);
+  color: var(--white-2);
 }
 
 :focus { outline-color: var(--orange-yellow-crayola); }
@@ -459,7 +690,7 @@ main {
   bottom: 0;
   left: 0;
   width: 100%;
-  background: hsla(240, 1%, 17%, 0.75);
+  background: var(--navbar-bg);
   backdrop-filter: blur(10px);
   border: 1px solid var(--jet);
   border-radius: 12px 12px 0 0;
@@ -490,6 +721,39 @@ main {
 
 
 
+
+/* Theme toggle (navbar) */
+.theme-toggle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: hsla(0, 0%, 100%, 0.08);
+  transition: background var(--transition-1), transform 0.3s ease;
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  background: hsla(0, 0%, 100%, 0.15);
+  transform: rotate(15deg);
+}
+
+html[data-theme="light"] .theme-toggle {
+  background: hsla(220, 40%, 50%, 0.08);
+}
+
+html[data-theme="light"] .theme-toggle:hover {
+  background: hsla(220, 40%, 50%, 0.15);
+}
+
+.theme-toggle ion-icon {
+  font-size: 18px;
+  color: var(--orange-yellow-crayola);
+  transition: color var(--transition-1);
+}
 
 /*-----------------------------------*\
   #ABOUT
@@ -641,7 +905,7 @@ main {
   left: 0;
   width: 100%;
   height: 100vh;
-  background: hsl(0, 0%, 5%);
+  background: var(--overlay-bg);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -755,6 +1019,10 @@ main {
 }
 
 .clients-item img:hover { filter: grayscale(0); }
+
+html[data-theme="light"] .clients-item img { filter: grayscale(0.2); }
+
+html[data-theme="light"] .clients-item img:hover { filter: grayscale(0); }
 
 
 
@@ -1139,6 +1407,10 @@ main {
   height: 100%;
   border: none;
   filter: grayscale(1) invert(1);
+}
+
+html[data-theme="light"] .mapbox iframe {
+  filter: none;
 }
 
 .contact-form { margin-bottom: 10px; }
@@ -1776,13 +2048,13 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   body::-webkit-scrollbar-thumb {
     border: 5px solid var(--smoky-black);
-    background: hsla(0, 0%, 100%, 0.1);
+    background: var(--scrollbar-thumb-bg);
     border-radius: 20px;
-    box-shadow: inset 1px 1px 0 hsla(0, 0%, 100%, 0.11),
-                inset -1px -1px 0 hsla(0, 0%, 100%, 0.11);
+    box-shadow: inset 1px 1px 0 var(--scrollbar-thumb-inset),
+                inset -1px -1px 0 var(--scrollbar-thumb-inset);
   }
 
-  body::-webkit-scrollbar-thumb:hover { background: hsla(0, 0%, 100%, 0.15); }
+  body::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-thumb-bg-hover); }
 
   body::-webkit-scrollbar-button { height: 60px; }
 

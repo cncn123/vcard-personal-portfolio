@@ -7,6 +7,44 @@ const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
 
 
 
+// theme toggle (dark <-> light)
+const rootEl = document.documentElement;
+const themeToggleBtn = document.querySelector("[data-theme-toggle]");
+const themeIcon = document.querySelector("[data-theme-icon]");
+
+const applyTheme = function (theme) {
+  rootEl.setAttribute("data-theme", theme);
+
+  if (!themeIcon) return;
+  // light mode -> show moon (to switch back), dark mode -> show sunny
+  themeIcon.setAttribute("name", theme === "light" ? "moon-outline" : "sunny-outline");
+}
+
+const getInitialTheme = function () {
+  try {
+    const saved = localStorage.getItem("theme");
+    if (saved === "light" || saved === "dark") return saved;
+  } catch (e) { /* ignore */ }
+
+  if (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) {
+    return "light";
+  }
+
+  return "dark";
+}
+
+applyTheme(getInitialTheme());
+
+if (themeToggleBtn) {
+  themeToggleBtn.addEventListener("click", function () {
+    const current = rootEl.getAttribute("data-theme");
+    const next = current === "light" ? "dark" : "light";
+
+    try { localStorage.setItem("theme", next); } catch (e) { /* ignore */ }
+    applyTheme(next);
+  });
+}
+
 // sidebar variables
 const sidebar = document.querySelector("[data-sidebar]");
 const sidebarBtn = document.querySelector("[data-sidebar-btn]");
