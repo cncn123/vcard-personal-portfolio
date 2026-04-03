@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hans" data-locale="zh-CN">
 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>vCard - Personal Portfolio</title>
+  <title>蔡倪 Bobby — 个人主页</title>
 
   <!--
     - favicon
@@ -18,8 +18,10 @@
   <link rel="stylesheet" href="./assets/css/style.css">
 
   <!--
-    - google font link
+    - fonts: LXGW WenKai (霞鹜文楷) + Poppins fallback
   -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -42,17 +44,17 @@
       <div class="sidebar-info">
 
         <figure class="avatar-box">
-          <img src="./assets/images/my-avatar.png" alt="Richard hanrick" width="80">
+          <img src="./assets/images/my-avatar.png" alt="蔡倪 Bobby" width="80">
         </figure>
 
         <div class="info-content">
-          <h1 class="name" title="Richard hanrick">Richard hanrick</h1>
+          <h1 class="name" data-i18n="nameDisplay">蔡倪（Bobby CAI Ni）</h1>
 
-          <p class="title">Web developer</p>
+          <p class="title" data-i18n="jobTitle">助理 IT 开发经理 · 大数据技术专家</p>
         </div>
 
         <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
+          <span data-i18n="sidebarShowContacts">显示联系方式</span>
 
           <ion-icon name="chevron-down"></ion-icon>
         </button>
@@ -72,9 +74,9 @@
             </div>
 
             <div class="contact-info">
-              <p class="contact-title">Email</p>
+              <p class="contact-title" data-i18n="contactEmail">电子邮箱</p>
 
-              <a href="mailto:richard@example.com" class="contact-link">richard@example.com</a>
+              <a href="mailto:contact@example.com" class="contact-link">contact@example.com</a>
             </div>
 
           </li>
@@ -86,23 +88,9 @@
             </div>
 
             <div class="contact-info">
-              <p class="contact-title">Phone</p>
+              <p class="contact-title" data-i18n="contactPhone">电话</p>
 
-              <a href="tel:+12133522795" class="contact-link">+1 (213) 352-2795</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="calendar-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Birthday</p>
-
-              <time datetime="1982-06-23">June 23, 1982</time>
+              <a href="tel:+85200000000" class="contact-link">+852 · 请更新号码</a>
             </div>
 
           </li>
@@ -114,9 +102,9 @@
             </div>
 
             <div class="contact-info">
-              <p class="contact-title">Location</p>
+              <p class="contact-title" data-i18n="contactLocation">所在地</p>
 
-              <address>Sacramento, California, USA</address>
+              <address data-i18n="contactAddress">中国香港</address>
             </div>
 
           </li>
@@ -128,19 +116,19 @@
         <ul class="social-list">
 
           <li class="social-item">
-            <a href="#" class="social-link">
+            <a href="#" class="social-link" data-i18n-aria="socialFacebook" aria-label="Facebook">
               <ion-icon name="logo-facebook"></ion-icon>
             </a>
           </li>
 
           <li class="social-item">
-            <a href="#" class="social-link">
+            <a href="#" class="social-link" data-i18n-aria="socialTwitter" aria-label="X（Twitter）">
               <ion-icon name="logo-twitter"></ion-icon>
             </a>
           </li>
 
           <li class="social-item">
-            <a href="#" class="social-link">
+            <a href="#" class="social-link" data-i18n-aria="socialInstagram" aria-label="Instagram">
               <ion-icon name="logo-instagram"></ion-icon>
             </a>
           </li>
@@ -170,27 +158,33 @@
         <ul class="navbar-list">
 
           <li class="navbar-item">
-            <button class="navbar-link  active" data-nav-link>About</button>
+            <button class="navbar-link active" type="button" data-nav-link data-nav-page="about"><span data-i18n="navAbout">关于</span></button>
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Resume</button>
+            <button class="navbar-link" type="button" data-nav-link data-nav-page="resume"><span data-i18n="navResume">履历</span></button>
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Portfolio</button>
+            <button class="navbar-link" type="button" data-nav-link data-nav-page="portfolio"><span data-i18n="navPortfolio">作品</span></button>
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Blog</button>
+            <button class="navbar-link" type="button" data-nav-link data-nav-page="blog"><span data-i18n="navBlog">随笔</span></button>
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Contact</button>
+            <button class="navbar-link" type="button" data-nav-link data-nav-page="contact"><span data-i18n="navContact">联系</span></button>
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link theme-toggle" type="button" data-theme-toggle aria-label="切换主题">
+            <button class="navbar-link lang-toggle" type="button" data-lang-toggle data-i18n-aria="langAria" aria-label="切换为繁体中文">
+              <span data-lang-label>繁體</span>
+            </button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link theme-toggle" type="button" data-theme-toggle data-i18n-aria="themeAria" aria-label="切换明暗主题">
               <ion-icon name="sunny-outline" data-theme-icon></ion-icon>
             </button>
           </li>
@@ -210,23 +204,19 @@
       <article class="about  active" data-page="about">
 
         <header>
-          <h2 class="h2 article-title">About me</h2>
+          <h2 class="h2 article-title" data-i18n="aboutTitle">关于我</h2>
         </header>
 
         <section class="about-text">
-          <p>
-            I'm Creative Director and UI/UX Designer from Sydney, Australia, working in web development and print media.
-            I enjoy
-            turning complex problems into simple, beautiful and intuitive designs.
-          </p>
+          <p data-i18n="aboutP1">我是蔡倪（Bobby CAI Ni），现任中国移动香港公司信息技术中心-中台运营支撑的助理 IT 开发经理及大数据技术专家。</p>
 
-          <p>
-            My job is to build your website so that it is functional and user-friendly but at the same time attractive.
-            Moreover, I
-            add personal touch to your product and make sure that is eye-catching and easy to use. My aim is to bring
-            across your
-            message and identity in the most creative way. I created web design for many famous brand companies.
-          </p>
+          <p data-i18n="aboutP2">我的核心职责是主导大数据应用的整体规划与落地，推动 AI 与大数据技术在客户洞察、精准营销、风险控制等核心业务场景中的应用，以提升自助化分析能力。同时，我负责统筹各部门数据需求的全生命周期管理，与业务部门协同开展关键业务领域的数据专题分析，将分析结果转化为自动化的多源数据融合报告，为管理层及业务部门提供数据驱动的决策支持。此外，我还致力于构建安全可控的数据生态合作模式，推动数据能力的产品化封装与商业化输出。</p>
+
+          <p data-i18n="aboutP3">在技术技能方面，我精通全栈开发，涵盖前端（HTML、JavaScript、CSS、C#）、后端（Java、Node.js、Python）及数据应用开发（Hive、Spark、PL/SQL、MongoDB），并具备移动端（iOS、Android）以及 Shell、AI-Python 等开发能力。</p>
+
+          <p data-i18n="aboutP4">我持有多项权威认证，包括 AWS 机器学习专家级认证、AWS 解决方案架构师认证、PMP 项目管理认证、CKA 认证、CDMP 数据管理认证、中国移动梧桐大数据助理级技能认证以及中国移动中级 AI 人才培训认证（技术方向），并入选集团 IT 专家人才库。</p>
+
+          <p data-i18n="aboutP5">在工作中，我始终坚持「技术驱动业务」，例如首创引入 AI 大模型优化数据治理流程，解决了地址数据标准化难题，有效支撑了精准营销策略的落地。</p>
         </section>
 
 
@@ -236,22 +226,21 @@
 
         <section class="service">
 
-          <h3 class="h3 service-title">What i'm doing</h3>
+          <h3 class="h3 service-title" data-i18n="serviceTitle">专业领域</h3>
 
           <ul class="service-list">
 
             <li class="service-item">
 
               <div class="service-icon-box">
-                <img src="./assets/images/icon-design.svg
-                " alt="design icon" width="40">
+                <img src="./assets/images/icon-design.svg" alt="" width="40">
               </div>
 
               <div class="service-content-box">
-                <h4 class="h4 service-item-title">Web design</h4>
+                <h4 class="h4 service-item-title" data-i18n="s1t">大数据与人工智能</h4>
 
-                <p class="service-item-text">
-                  The most modern and high-quality design made at a professional level.
+                <p class="service-item-text" data-i18n="s1d">
+                  规划并落地大数据应用，推动 AI 与大数据在客户洞察、精准营销、风控等场景的价值闭环。
                 </p>
               </div>
 
@@ -260,14 +249,14 @@
             <li class="service-item">
 
               <div class="service-icon-box">
-                <img src="./assets/images/icon-dev.svg" alt="Web development icon" width="40">
+                <img src="./assets/images/icon-dev.svg" alt="" width="40">
               </div>
 
               <div class="service-content-box">
-                <h4 class="h4 service-item-title">Web development</h4>
+                <h4 class="h4 service-item-title" data-i18n="s2t">全栈与工程化</h4>
 
-                <p class="service-item-text">
-                  High-quality development of sites at the professional level.
+                <p class="service-item-text" data-i18n="s2d">
+                  覆盖前端、后端、数据应用与移动端工程实践，支撑中台与业务系统建设。
                 </p>
               </div>
 
@@ -276,14 +265,14 @@
             <li class="service-item">
 
               <div class="service-icon-box">
-                <img src="./assets/images/icon-app.svg" alt="mobile app icon" width="40">
+                <img src="./assets/images/icon-app.svg" alt="" width="40">
               </div>
 
               <div class="service-content-box">
-                <h4 class="h4 service-item-title">Mobile apps</h4>
+                <h4 class="h4 service-item-title" data-i18n="s3t">数据工程与自助分析</h4>
 
-                <p class="service-item-text">
-                  Professional development of applications for iOS and Android.
+                <p class="service-item-text" data-i18n="s3d">
+                  统筹数据需求全生命周期，开展专题分析并沉淀自动化、多源融合的分析报告能力。
                 </p>
               </div>
 
@@ -292,14 +281,14 @@
             <li class="service-item">
 
               <div class="service-icon-box">
-                <img src="./assets/images/icon-photo.svg" alt="camera icon" width="40">
+                <img src="./assets/images/icon-photo.svg" alt="" width="40">
               </div>
 
               <div class="service-content-box">
-                <h4 class="h4 service-item-title">Photography</h4>
+                <h4 class="h4 service-item-title" data-i18n="s4t">数据治理与生态合作</h4>
 
-                <p class="service-item-text">
-                  I make high-quality photos of any category at a professional level.
+                <p class="service-item-text" data-i18n="s4d">
+                  构建安全可控的数据合作模式，推动数据能力产品化封装与商业化输出。
                 </p>
               </div>
 
@@ -316,7 +305,7 @@
 
         <section class="testimonials">
 
-          <h3 class="h3 testimonials-title">Testimonials</h3>
+          <h3 class="h3 testimonials-title" data-i18n="testimonialsTitle">工作亮点</h3>
 
           <ul class="testimonials-list has-scrollbar">
 
@@ -324,18 +313,14 @@
               <div class="content-card" data-testimonials-item>
 
                 <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="60" data-testimonials-avatar>
+                  <img src="./assets/images/avatar-1.png" alt="" width="60" data-testimonials-avatar>
                 </figure>
 
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Daniel lewis</h4>
+                <h4 class="h4 testimonials-item-title" data-testimonials-title data-i18n="t1name">数据治理创新</h4>
 
                 <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                    lot of experience
-                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                    consectetur adipiscing
-                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
+                  <p data-i18n="t1text">
+                    率先引入 AI 大模型优化数据治理流程，解决地址数据标准化难题，支撑精准营销落地。
                   </p>
                 </div>
 
@@ -346,62 +331,14 @@
               <div class="content-card" data-testimonials-item>
 
                 <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-2.png" alt="Jessica miller" width="60" data-testimonials-avatar>
+                  <img src="./assets/images/avatar-2.png" alt="" width="60" data-testimonials-avatar>
                 </figure>
 
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Jessica miller</h4>
+                <h4 class="h4 testimonials-item-title" data-testimonials-title data-i18n="t2name">业务赋能</h4>
 
                 <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                    lot of experience
-                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                    consectetur adipiscing
-                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-3.png" alt="Emily evans" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Emily evans</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                    lot of experience
-                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                    consectetur adipiscing
-                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-4.png" alt="Henry william" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Henry william</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                    lot of experience
-                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                    consectetur adipiscing
-                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
+                  <p data-i18n="t2text">
+                    将分析结果转化为自动化多源数据融合报告，为管理层与业务部门提供数据驱动的决策支持。
                   </p>
                 </div>
 
@@ -429,25 +366,21 @@
 
             <div class="modal-img-wrapper">
               <figure class="modal-avatar-box">
-                <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
+                <img src="./assets/images/avatar-1.png" alt="" width="80" data-modal-img>
               </figure>
 
-              <img src="./assets/images/icon-quote.svg" alt="quote icon">
+              <img src="./assets/images/icon-quote.svg" alt="">
             </div>
 
             <div class="modal-content">
 
-              <h4 class="h3 modal-title" data-modal-title>Daniel lewis</h4>
+              <h4 class="h3 modal-title" data-modal-title data-i18n="t1name">数据治理创新</h4>
 
-              <time datetime="2021-06-14">14 June, 2021</time>
+              <time datetime="2024-01-01">—</time>
 
               <div data-modal-text>
-                <p>
-                  Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                  lot of experience
-                  and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                  consectetur adipiscing
-                  elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
+                <p data-i18n="t1text">
+                  率先引入 AI 大模型优化数据治理流程，解决地址数据标准化难题，支撑精准营销落地。
                 </p>
               </div>
 
@@ -464,43 +397,43 @@
 
         <section class="clients">
 
-          <h3 class="h3 clients-title">Clients</h3>
+          <h3 class="h3 clients-title" data-i18n="clientsTitle">合作伙伴</h3>
 
           <ul class="clients-list has-scrollbar">
 
             <li class="clients-item">
               <a href="#">
-                <img src="./assets/images/logo-1-color.png" alt="client logo">
+                <img src="./assets/images/logo-1-color.png" alt="">
               </a>
             </li>
 
             <li class="clients-item">
               <a href="#">
-                <img src="./assets/images/logo-2-color.png" alt="client logo">
+                <img src="./assets/images/logo-2-color.png" alt="">
               </a>
             </li>
 
             <li class="clients-item">
               <a href="#">
-                <img src="./assets/images/logo-3-color.png" alt="client logo">
+                <img src="./assets/images/logo-3-color.png" alt="">
               </a>
             </li>
 
             <li class="clients-item">
               <a href="#">
-                <img src="./assets/images/logo-4-color.png" alt="client logo">
+                <img src="./assets/images/logo-4-color.png" alt="">
               </a>
             </li>
 
             <li class="clients-item">
               <a href="#">
-                <img src="./assets/images/logo-5-color.png" alt="client logo">
+                <img src="./assets/images/logo-5-color.png" alt="">
               </a>
             </li>
 
             <li class="clients-item">
               <a href="#">
-                <img src="./assets/images/logo-6-color.png" alt="client logo">
+                <img src="./assets/images/logo-6-color.png" alt="">
               </a>
             </li>
 
@@ -521,58 +454,29 @@
       <article class="resume" data-page="resume">
 
         <header>
-          <h2 class="h2 article-title">Resume</h2>
+          <h2 class="h2 article-title" data-i18n="resumeTitle">履历</h2>
         </header>
 
         <section class="timeline">
 
           <div class="title-wrapper">
             <div class="icon-box">
-              <ion-icon name="book-outline"></ion-icon>
+              <ion-icon name="school-outline"></ion-icon>
             </div>
 
-            <h3 class="h3">Education</h3>
+            <h3 class="h3" data-i18n="eduTitle">专业认证</h3>
           </div>
 
           <ol class="timeline-list">
 
             <li class="timeline-item">
 
-              <h4 class="h4 timeline-item-title">University school of the arts</h4>
+              <h4 class="h4 timeline-item-title" data-i18n="eduItemTitle">权威认证与人才资质</h4>
 
-              <span>2007 — 2008</span>
+              <span data-i18n="eduSpan">持续更新</span>
 
-              <p class="timeline-text">
-                Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et
-                quas molestias
-                exceptur.
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">New york academy of art</h4>
-
-              <span>2006 — 2007</span>
-
-              <p class="timeline-text">
-                Ratione voluptatem sequi nesciunt, facere quisquams facere menda ossimus, omnis voluptas assumenda est
-                omnis..
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">High school of art and design</h4>
-
-              <span>2002 — 2004</span>
-
-              <p class="timeline-text">
-                Duis aute irure dolor in reprehenderit in voluptate, quila voluptas mag odit aut fugit, sed consequuntur
-                magni dolores
-                eos.
+              <p class="timeline-text" data-i18n="eduText">
+                AWS 机器学习专家级认证、AWS 解决方案架构师认证、PMP、CKA、CDMP、中国移动梧桐大数据助理级技能认证、中国移动中级 AI 人才培训认证（技术方向）；入选集团 IT 专家人才库。
               </p>
 
             </li>
@@ -585,52 +489,22 @@
 
           <div class="title-wrapper">
             <div class="icon-box">
-              <ion-icon name="book-outline"></ion-icon>
+              <ion-icon name="briefcase-outline"></ion-icon>
             </div>
 
-            <h3 class="h3">Experience</h3>
+            <h3 class="h3" data-i18n="expTitle">职业经历</h3>
           </div>
 
           <ol class="timeline-list">
 
             <li class="timeline-item">
 
-              <h4 class="h4 timeline-item-title">Creative director</h4>
+              <h4 class="h4 timeline-item-title" data-i18n="expItemTitle">中国移动香港有限公司</h4>
 
-              <span>2015 — Present</span>
+              <span data-i18n="expSpan">至今</span>
 
-              <p class="timeline-text">
-                Nemo enim ipsam voluptatem blanditiis praesentium voluptum delenit atque corrupti, quos dolores et qvuas
-                molestias
-                exceptur.
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Art director</h4>
-
-              <span>2013 — 2015</span>
-
-              <p class="timeline-text">
-                Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et
-                quas molestias
-                exceptur.
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Web designer</h4>
-
-              <span>2010 — 2013</span>
-
-              <p class="timeline-text">
-                Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et
-                quas molestias
-                exceptur.
+              <p class="timeline-text" data-i18n="expText">
+                信息技术中心 · 中台运营支撑。任助理 IT 开发经理及大数据技术专家，主导大数据应用规划与落地，推动 AI 与大数据在核心业务场景的应用，统筹数据需求管理与跨部门数据专题分析。
               </p>
 
             </li>
@@ -641,19 +515,19 @@
 
         <section class="skill">
 
-          <h3 class="h3 skills-title">My skills</h3>
+          <h3 class="h3 skills-title" data-i18n="skillsTitle">技能侧重</h3>
 
           <ul class="skills-list content-card">
 
             <li class="skills-item">
 
               <div class="title-wrapper">
-                <h5 class="h5">Web design</h5>
-                <data value="80">80%</data>
+                <h5 class="h5" data-i18n="sk1">大数据（Spark / Hive）</h5>
+                <data value="88">88%</data>
               </div>
 
               <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 80%;"></div>
+                <div class="skill-progress-fill" style="width: 88%;"></div>
               </div>
 
             </li>
@@ -661,12 +535,12 @@
             <li class="skills-item">
 
               <div class="title-wrapper">
-                <h5 class="h5">Graphic design</h5>
-                <data value="70">70%</data>
+                <h5 class="h5" data-i18n="sk2">Java / 后端工程</h5>
+                <data value="82">82%</data>
               </div>
 
               <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 70%;"></div>
+                <div class="skill-progress-fill" style="width: 82%;"></div>
               </div>
 
             </li>
@@ -674,12 +548,12 @@
             <li class="skills-item">
 
               <div class="title-wrapper">
-                <h5 class="h5">Branding</h5>
-                <data value="90">90%</data>
+                <h5 class="h5" data-i18n="sk3">Python / AI 与脚本</h5>
+                <data value="85">85%</data>
               </div>
 
               <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 90%;"></div>
+                <div class="skill-progress-fill" style="width: 85%;"></div>
               </div>
 
             </li>
@@ -687,12 +561,12 @@
             <li class="skills-item">
 
               <div class="title-wrapper">
-                <h5 class="h5">WordPress</h5>
-                <data value="50">50%</data>
+                <h5 class="h5" data-i18n="sk4">前端与全栈交付</h5>
+                <data value="78">78%</data>
               </div>
 
               <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 50%;"></div>
+                <div class="skill-progress-fill" style="width: 78%;"></div>
               </div>
 
             </li>
@@ -714,7 +588,7 @@
       <article class="portfolio" data-page="portfolio">
 
         <header>
-          <h2 class="h2 article-title">Portfolio</h2>
+          <h2 class="h2 article-title" data-i18n="portfolioTitle">作品展示</h2>
         </header>
 
         <section class="projects">
@@ -722,28 +596,28 @@
           <ul class="filter-list">
 
             <li class="filter-item">
-              <button class="active" data-filter-btn>All</button>
+              <button class="active" type="button" data-filter-btn data-filter="all"><span data-i18n="filterAll">全部</span></button>
             </li>
 
             <li class="filter-item">
-              <button data-filter-btn>Web design</button>
+              <button type="button" data-filter-btn data-filter="web design"><span data-i18n="filterWebDesign">数据可视化</span></button>
             </li>
 
             <li class="filter-item">
-              <button data-filter-btn>Applications</button>
+              <button type="button" data-filter-btn data-filter="applications"><span data-i18n="filterApps">平台与工具</span></button>
             </li>
 
             <li class="filter-item">
-              <button data-filter-btn>Web development</button>
+              <button type="button" data-filter-btn data-filter="web development"><span data-i18n="filterWebDev">工程实践</span></button>
             </li>
 
           </ul>
 
           <div class="filter-select-box">
 
-            <button class="filter-select" data-select>
+            <button class="filter-select" type="button" data-select>
 
-              <div class="select-value" data-selecct-value>Select category</div>
+              <div class="select-value" data-selecct-value><span data-i18n="selectCategory">选择分类</span></div>
 
               <div class="select-icon">
                 <ion-icon name="chevron-down"></ion-icon>
@@ -754,19 +628,19 @@
             <ul class="select-list">
 
               <li class="select-item">
-                <button data-select-item>All</button>
+                <button type="button" data-select-item data-filter="all"><span data-i18n="filterAll">全部</span></button>
               </li>
 
               <li class="select-item">
-                <button data-select-item>Web design</button>
+                <button type="button" data-select-item data-filter="web design"><span data-i18n="filterWebDesign">数据可视化</span></button>
               </li>
 
               <li class="select-item">
-                <button data-select-item>Applications</button>
+                <button type="button" data-select-item data-filter="applications"><span data-i18n="filterApps">平台与工具</span></button>
               </li>
 
               <li class="select-item">
-                <button data-select-item>Web development</button>
+                <button type="button" data-select-item data-filter="web development"><span data-i18n="filterWebDev">工程实践</span></button>
               </li>
 
             </ul>
@@ -788,7 +662,7 @@
 
                 <h3 class="project-title">Finance</h3>
 
-                <p class="project-category">Web development</p>
+                <p class="project-category"><span data-i18n="portfolioCatDev">工程实践</span></p>
 
               </a>
             </li>
@@ -806,7 +680,7 @@
 
                 <h3 class="project-title">Orizon</h3>
 
-                <p class="project-category">Web development</p>
+                <p class="project-category"><span data-i18n="portfolioCatDev">工程实践</span></p>
 
               </a>
             </li>
@@ -824,7 +698,7 @@
 
                 <h3 class="project-title">Fundo</h3>
 
-                <p class="project-category">Web design</p>
+                <p class="project-category"><span data-i18n="portfolioCatWD">数据可视化</span></p>
 
               </a>
             </li>
@@ -842,7 +716,7 @@
 
                 <h3 class="project-title">Brawlhalla</h3>
 
-                <p class="project-category">Applications</p>
+                <p class="project-category"><span data-i18n="portfolioCatApp">平台与工具</span></p>
 
               </a>
             </li>
@@ -860,7 +734,7 @@
 
                 <h3 class="project-title">DSM.</h3>
 
-                <p class="project-category">Web design</p>
+                <p class="project-category"><span data-i18n="portfolioCatWD">数据可视化</span></p>
 
               </a>
             </li>
@@ -878,7 +752,7 @@
 
                 <h3 class="project-title">MetaSpark</h3>
 
-                <p class="project-category">Web design</p>
+                <p class="project-category"><span data-i18n="portfolioCatWD">数据可视化</span></p>
 
               </a>
             </li>
@@ -896,7 +770,7 @@
 
                 <h3 class="project-title">Summary</h3>
 
-                <p class="project-category">Web development</p>
+                <p class="project-category"><span data-i18n="portfolioCatDev">工程实践</span></p>
 
               </a>
             </li>
@@ -914,7 +788,7 @@
 
                 <h3 class="project-title">Task Manager</h3>
 
-                <p class="project-category">Applications</p>
+                <p class="project-category"><span data-i18n="portfolioCatApp">平台与工具</span></p>
 
               </a>
             </li>
@@ -932,7 +806,7 @@
 
                 <h3 class="project-title">Arrival</h3>
 
-                <p class="project-category">Web development</p>
+                <p class="project-category"><span data-i18n="portfolioCatDev">工程实践</span></p>
 
               </a>
             </li>
@@ -954,7 +828,7 @@
       <article class="blog" data-page="blog">
 
         <header>
-          <h2 class="h2 article-title">Blog</h2>
+          <h2 class="h2 article-title" data-i18n="blogTitle">随笔</h2>
         </header>
 
         <section class="blog-posts">
@@ -965,23 +839,23 @@
               <a href="#">
 
                 <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-1.jpg" alt="Design conferences in 2022" loading="lazy">
+                  <img src="./assets/images/blog-1.jpg" alt="" loading="lazy">
                 </figure>
 
                 <div class="blog-content">
 
                   <div class="blog-meta">
-                    <p class="blog-category">Design</p>
+                    <p class="blog-category" data-i18n="blogCat">大数据</p>
 
                     <span class="dot"></span>
 
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                    <time datetime="2024-06-01">2024-06</time>
                   </div>
 
-                  <h3 class="h3 blog-item-title">Design conferences in 2022</h3>
+                  <h3 class="h3 blog-item-title" data-i18n="blog1title">自助分析与数据产品化思考</h3>
 
-                  <p class="blog-text">
-                    Veritatis et quasi architecto beatae vitae dicta sunt, explicabo.
+                  <p class="blog-text" data-i18n="blog1excerpt">
+                    从需求统筹到报告自动化，如何把分析能力沉淀为可复用的数据产品。
                   </p>
 
                 </div>
@@ -993,23 +867,23 @@
               <a href="#">
 
                 <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-2.jpg" alt="Best fonts every designer" loading="lazy">
+                  <img src="./assets/images/blog-2.jpg" alt="" loading="lazy">
                 </figure>
 
                 <div class="blog-content">
 
                   <div class="blog-meta">
-                    <p class="blog-category">Design</p>
+                    <p class="blog-category" data-i18n="blogCat">大数据</p>
 
                     <span class="dot"></span>
 
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                    <time datetime="2024-08-15">2024-08</time>
                   </div>
 
-                  <h3 class="h3 blog-item-title">Best fonts every designer</h3>
+                  <h3 class="h3 blog-item-title" data-i18n="blog2title">AI 在数据治理中的实践</h3>
 
-                  <p class="blog-text">
-                    Sed ut perspiciatis, nam libero tempore, cum soluta nobis est eligendi.
+                  <p class="blog-text" data-i18n="blog2excerpt">
+                    以大模型辅助标准化与质量提升为例，讨论技术与业务的结合点。
                   </p>
 
                 </div>
@@ -1021,107 +895,23 @@
               <a href="#">
 
                 <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-3.jpg" alt="Design digest #80" loading="lazy">
+                  <img src="./assets/images/blog-3.jpg" alt="" loading="lazy">
                 </figure>
 
                 <div class="blog-content">
 
                   <div class="blog-meta">
-                    <p class="blog-category">Design</p>
+                    <p class="blog-category" data-i18n="blogCat">大数据</p>
 
                     <span class="dot"></span>
 
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                    <time datetime="2024-11-20">2024-11</time>
                   </div>
 
-                  <h3 class="h3 blog-item-title">Design digest #80</h3>
+                  <h3 class="h3 blog-item-title" data-i18n="blog3title">精准营销背后的数据链路</h3>
 
-                  <p class="blog-text">
-                    Excepteur sint occaecat cupidatat no proident, quis nostrum exercitationem ullam corporis suscipit.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-4.jpg" alt="UI interactions of the week" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">UI interactions of the week</h3>
-
-                  <p class="blog-text">
-                    Enim ad minim veniam, consectetur adipiscing elit, quis nostrud exercitation ullamco laboris nisi.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-5.jpg" alt="The forgotten art of spacing" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">The forgotten art of spacing</h3>
-
-                  <p class="blog-text">
-                    Maxime placeat, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-6.jpg" alt="Design digest #79" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Design digest #79</h3>
-
-                  <p class="blog-text">
-                    Optio cumque nihil impedit uo minus quod maxime placeat, velit esse cillum.
+                  <p class="blog-text" data-i18n="blog3excerpt">
+                    客户洞察、特征工程与策略闭环中的关键能力与实践要点。
                   </p>
 
                 </div>
@@ -1146,34 +936,34 @@
       <article class="contact" data-page="contact">
 
         <header>
-          <h2 class="h2 article-title">Contact</h2>
+          <h2 class="h2 article-title" data-i18n="contactTitle">联系</h2>
         </header>
 
         <section class="mapbox" data-mapbox>
           <figure>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d199666.5651251294!2d-121.58334177520186!3d38.56165006739519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809ac672b28397f9%3A0x921f6aaa74197fdb!2sSacramento%2C%20CA%2C%20USA!5e0!3m2!1sen!2sbd!4v1647608789441!5m2!1sen!2sbd"
-              width="400" height="300" loading="lazy"></iframe>
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59049.07528271423!2d114.11714604999999!3d22.3506272!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34040639f7117743%3A0xe91e1f0346da931c!2sHong%20Kong!5e0!3m2!1szh-CN!2shk!4v1618839890541!5m2!1szh-CN!2shk"
+              width="400" height="300" loading="lazy" data-i18n-title="mapTitle" title="中国香港"></iframe>
           </figure>
         </section>
 
         <section class="contact-form">
 
-          <h3 class="h3 form-title">Contact Form</h3>
+          <h3 class="h3 form-title" data-i18n="formTitle">留言</h3>
 
           <form action="#" class="form" data-form>
 
             <div class="input-wrapper">
-              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+              <input type="text" name="fullname" class="form-input" data-i18n-placeholder="phName" placeholder="姓名" required data-form-input>
 
-              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+              <input type="email" name="email" class="form-input" data-i18n-placeholder="phEmail" placeholder="电子邮箱" required data-form-input>
             </div>
 
-            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+            <textarea name="message" class="form-input" data-i18n-placeholder="phMessage" placeholder="留言内容" required data-form-input></textarea>
 
             <button class="form-btn" type="submit" disabled data-form-btn>
               <ion-icon name="paper-plane"></ion-icon>
-              <span>Send Message</span>
+              <span data-i18n="sendBtn">发送</span>
             </button>
 
           </form>
@@ -1194,6 +984,7 @@
   <!--
     - custom js link
   -->
+  <script src="./assets/js/i18n.js"></script>
   <script src="./assets/js/script.js"></script>
 
   <!--
