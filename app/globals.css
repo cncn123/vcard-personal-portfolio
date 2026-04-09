@@ -76,7 +76,9 @@ html[data-theme="light"] {
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: "LXGW WenKai", "PingFang SC", "Microsoft YaHei", ui-sans-serif, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
+    "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+    ui-sans-serif, sans-serif;
   font-size: 15px;
   line-height: 1.7;
   color: var(--text);
@@ -90,11 +92,15 @@ body {
 
 /* 简体 / 繁体按 lang 分流字体族 */
 html[lang="zh-Hans"] body {
-  font-family: "LXGW WenKai", "PingFang SC", "Microsoft YaHei", ui-sans-serif, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
+    "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+    ui-sans-serif, sans-serif;
 }
 
 html[lang="zh-Hant"] body {
-  font-family: "LXGW WenKai TC", "PingFang TC", "Microsoft JhengHei", ui-sans-serif, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
+    "Helvetica Neue", Arial, "PingFang TC", "Hiragino Sans CNS", "Microsoft JhengHei",
+    ui-sans-serif, sans-serif;
 }
 
 img { display: block; max-width: 100%; }

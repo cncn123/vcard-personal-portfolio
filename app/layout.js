@@ -1,10 +1,4 @@
 import "./globals.css";
-import "@fontsource/lxgw-wenkai/300.css";
-import "@fontsource/lxgw-wenkai/500.css";
-import "@fontsource/lxgw-wenkai/700.css";
-import "@fontsource/lxgw-wenkai-tc/300.css";
-import "@fontsource/lxgw-wenkai-tc/400.css";
-import "@fontsource/lxgw-wenkai-tc/700.css";
 
 export const metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
