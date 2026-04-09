@@ -20,7 +20,7 @@ export default function Navbar({ t, activePage, setActivePage, locale, setLocale
           </li>
         ))}
 
-        <li className="navbar__item">
+        <li className="navbar__item navbar__actions">
           <button
             type="button"
             className="navbar__link navbar__lang"
@@ -30,9 +30,7 @@ export default function Navbar({ t, activePage, setActivePage, locale, setLocale
             <Languages size={14} />
             {t.langToggle}
           </button>
-        </li>
 
-        <li className="navbar__item">
           <button
             type="button"
             className="navbar__link navbar__theme"

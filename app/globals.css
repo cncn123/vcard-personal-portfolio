@@ -238,6 +238,13 @@ ul { list-style: none; }
   gap: 2px;
 }
 
+.navbar__actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
 .navbar__link {
   font-size: 13px;
   color: var(--text-soft);
@@ -250,7 +257,6 @@ ul { list-style: none; }
 
 .navbar__lang {
   display: flex; align-items: center; gap: 5px;
-  margin-left: auto;
 }
 .navbar__lang:hover { border-color: var(--accent); }
 
@@ -346,7 +352,10 @@ ul { list-style: none; }
   display: flex;
   gap: 14px;
   overflow-x: auto;
-  padding-bottom: 6px;
+  /* overflow-x 会在部分浏览器连带裁切 y 方向，给 hover 抬升留出空间 */
+  padding-top: 6px;
+  padding-bottom: 12px;
+  overflow-y: visible;
   scrollbar-width: thin;
 }
 
