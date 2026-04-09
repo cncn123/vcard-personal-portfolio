@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Blog({ t }) {
   return (
     <article className="page-section">
@@ -11,7 +13,13 @@ export default function Blog({ t }) {
             <li key={post.title} className="blog-post-item">
               <a href="#">
                 <figure className="blog-banner-box">
-                  <img src={post.img} alt="" loading="lazy" />
+                  <Image
+                    src={post.img}
+                    alt=""
+                    fill
+                    sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
+                    style={{ objectFit: "cover" }}
+                  />
                 </figure>
                 <div className="blog-content">
                   <div className="blog-meta">

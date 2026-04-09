@@ -1,5 +1,6 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import {
   BrainCircuit,
   Code2,
@@ -21,6 +22,48 @@ const PARTNER_LOGOS = [
 
 export default function About({ t }) {
   const [modal, setModal] = useState(null);
+  const closeBtnRef = useRef(null);
+  const lastFocusRef = useRef(null);
+
+  useEffect(() => {
+    if (!modal) return;
+    lastFocusRef.current = document.activeElement;
+    closeBtnRef.current?.focus();
+
+    const onKeyDown = (e) => {
+      if (e.key === "Escape") {
+        setModal(null);
+        return;
+      }
+
+      if (e.key === "Tab") {
+        const root = document.querySelector("[data-modal-root]");
+        if (!root) return;
+        const focusables = root.querySelectorAll(
+          'button,[href],input,select,textarea,[tabindex]:not([tabindex=\"-1\"])'
+        );
+        if (!focusables.length) return;
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    };
+
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [modal]);
+
+  useEffect(() => {
+    if (modal) return;
+    const prev = lastFocusRef.current;
+    if (prev && typeof prev.focus === "function") prev.focus();
+  }, [modal]);
 
   return (
     <article className="page-section">
@@ -72,7 +115,7 @@ export default function About({ t }) {
                 onKeyDown={(e) => e.key === "Enter" && setModal(h)}
               >
                 <figure className="testimonials-avatar-box">
-                  <img src={h.avatar} alt="" width={60} height={60} />
+                  <Image src={h.avatar} alt="" width={60} height={60} />
                 </figure>
                 <h4 className="testimonials-item-title">{h.name}</h4>
                 <div className="testimonials-text">
@@ -86,22 +129,27 @@ export default function About({ t }) {
 
       {/* Modal */}
       {modal && (
-        <div className="modal-overlay" onClick={() => setModal(null)}>
+        <div className="modal-overlay" onClick={() => setModal(null)} aria-hidden="true">
           <section
             className="testimonials-modal"
             onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            aria-label={modal.name}
+            data-modal-root
           >
             <button
               className="modal-close-btn"
               type="button"
               onClick={() => setModal(null)}
               aria-label="关闭"
+              ref={closeBtnRef}
             >
               <X size={20} />
             </button>
             <div className="modal-img-wrapper">
               <figure className="modal-avatar-box">
-                <img src={modal.avatar} alt="" width={80} height={80} />
+                <Image src={modal.avatar} alt="" width={80} height={80} />
               </figure>
               <Quote size={28} className="modal-quote-icon" />
             </div>
@@ -120,7 +168,7 @@ export default function About({ t }) {
           {PARTNER_LOGOS.map((src, i) => (
             <li key={i} className="clients-item">
               <a href="#">
-                <img src={src} alt="" />
+                <Image src={src} alt="" width={100} height={32} />
               </a>
             </li>
           ))}

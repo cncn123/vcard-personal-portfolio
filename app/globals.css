@@ -580,7 +580,7 @@ ul { list-style: none; }
 }
 .blog-post-item a:hover { border-color: var(--accent); transform: translateY(-3px); }
 
-.blog-banner-box { height: 180px; overflow: hidden; }
+.blog-banner-box { height: 180px; overflow: hidden; position: relative; }
 .blog-banner-box img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
 .blog-post-item a:hover .blog-banner-box img { transform: scale(1.04); }
 

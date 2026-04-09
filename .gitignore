@@ -1,11 +1,13 @@
 .DS_Store
 .cursor/
-assets/.DS_Store
-assets/images/.DS_Store
+.idea/
 node_modules/
 .next/
-public/*.png
-public/*.jpg
-public/*.ico
-public/*.svg
+
+# optional logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+public/.DS_Store
 

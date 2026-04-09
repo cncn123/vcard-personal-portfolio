@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 import {
   Camera,
   ChevronDown,
@@ -19,7 +20,13 @@ export default function Sidebar({ t }) {
     <aside className={`sidebar${open ? " sidebar--open" : ""}`}>
       <div className="sidebar__info">
         <figure className="avatar-box">
-          <img src="/my-avatar.png" alt={t.nameDisplay} width={80} height={80} />
+          <Image
+            src="/my-avatar.png"
+            alt={t.nameDisplay}
+            width={80}
+            height={80}
+            priority
+          />
         </figure>
 
         <div className="info-content">

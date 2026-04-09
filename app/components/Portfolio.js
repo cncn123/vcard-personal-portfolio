@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { ChevronDown, Eye } from "lucide-react";
+import Image from "next/image";
 
 const FILTERS = ["all", "web design", "applications", "web development"];
 const FILTER_KEYS = ["filterAll", "filterWebDesign", "filterApps", "filterWebDev"];
@@ -75,7 +76,13 @@ export default function Portfolio({ t }) {
                 <div className="project-item-icon-box">
                   <Eye size={18} />
                 </div>
-                <img src={p.img} alt={p.title} loading="lazy" />
+                <Image
+                  src={p.img}
+                  alt={p.title}
+                  fill
+                  sizes="(max-width: 580px) 100vw, (max-width: 900px) 50vw, 33vw"
+                  style={{ objectFit: "cover" }}
+                />
               </figure>
               <h3 className="project-title">{p.title}</h3>
               <p className="project-category">{t.catLabels[p.cat]}</p>
