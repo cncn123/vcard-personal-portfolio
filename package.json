@@ -1,0 +1,18 @@
+{
+  "name": "vcard-personal-portfolio",
+  "version": "1.0.0",
+  "description": "Modernized portfolio with Next.js and Lucide icons",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "private": true,
+  "dependencies": {
+    "lucide-react": "^1.7.0",
+    "next": "^16.2.3",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5"
+  }
+}
