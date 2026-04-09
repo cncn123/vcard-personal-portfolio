@@ -10,6 +10,8 @@
   },
   "private": true,
   "dependencies": {
+    "@fontsource/lxgw-wenkai": "^5.2.5",
+    "@fontsource/lxgw-wenkai-tc": "^5.2.9",
     "lucide-react": "^1.7.0",
     "next": "^16.2.3",
     "react": "^19.2.5",

@@ -55,6 +55,15 @@ body {
   min-height: 100vh;
 }
 
+/* 简体 / 繁体按 lang 分流字体族 */
+html[lang="zh-Hans"] body {
+  font-family: "LXGW WenKai", "PingFang SC", "Microsoft YaHei", ui-sans-serif, sans-serif;
+}
+
+html[lang="zh-Hant"] body {
+  font-family: "LXGW WenKai TC", "PingFang TC", "Microsoft JhengHei", ui-sans-serif, sans-serif;
+}
+
 img { display: block; max-width: 100%; }
 a  { color: inherit; text-decoration: none; }
 address { font-style: normal; }
@@ -128,9 +137,6 @@ ul { list-style: none; }
 .sidebar__role {
   font-size: 12px;
   color: var(--text-soft);
-  background: var(--accent-dim);
-  border: 1px solid var(--border);
-  border-radius: 6px;
   padding: 4px 10px;
   display: inline-block;
   margin-top: 4px;
@@ -217,18 +223,12 @@ ul { list-style: none; }
 .navbar__lang {
   display: flex; align-items: center; gap: 5px;
   margin-left: auto;
-  border: 1px solid var(--border);
-  color: var(--accent);
 }
 .navbar__lang:hover { border-color: var(--accent); }
 
 .navbar__theme {
   display: grid; place-items: center;
   width: 36px; height: 36px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  color: var(--text-soft);
-  transition: color var(--transition), border-color var(--transition), background var(--transition);
 }
 .navbar__theme:hover { color: var(--accent); border-color: var(--accent); background: var(--accent-dim); }
 

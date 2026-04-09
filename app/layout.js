@@ -1,4 +1,10 @@
 import "./globals.css";
+import "@fontsource/lxgw-wenkai/300.css";
+import "@fontsource/lxgw-wenkai/500.css";
+import "@fontsource/lxgw-wenkai/700.css";
+import "@fontsource/lxgw-wenkai-tc/300.css";
+import "@fontsource/lxgw-wenkai-tc/400.css";
+import "@fontsource/lxgw-wenkai-tc/700.css";
 
 export const metadata = {
   title: "蔡倪 Bobby — 个人主页",
@@ -9,11 +15,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="zh-Hans" suppressHydrationWarning>
       <head>
-        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="" />
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css"
-        />
         <link rel="shortcut icon" href="/logo.ico" type="image/x-icon" />
       </head>
       <body>{children}</body>
