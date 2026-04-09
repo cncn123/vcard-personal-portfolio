@@ -2,68 +2,72 @@
 :root {
   /* Background */
   --bg:             hsl(220, 14%, 6%);
-  --bg-blob-a:      rgba(225, 182, 73, 0.15);
-  --bg-blob-b:      rgba(87, 128, 214, 0.18);
+  --bg-blob-a:      rgba(10, 132, 255, 0.16);
+  --bg-blob-b:      rgba(175, 82, 222, 0.14);
+  --bg-blob-c:      rgba(255, 159, 10, 0.10);
 
   /* Glass surfaces */
-  --surface:        hsla(230, 14%, 14%, 0.68);
-  --surface-hi:     hsla(230, 14%, 18%, 0.78);
-  --surface-hover:  hsla(230, 14%, 20%, 0.82);
+  --surface:        hsla(230, 16%, 14%, 0.62);
+  --surface-hi:     hsla(230, 16%, 18%, 0.72);
+  --surface-hover:  hsla(230, 16%, 20%, 0.78);
 
   /* Borders */
-  --border:         hsla(0, 0%, 100%, 0.12);
-  --border-soft:    hsla(0, 0%, 100%, 0.08);
+  --border:         hsla(0, 0%, 100%, 0.14);
+  --border-soft:    hsla(0, 0%, 100%, 0.10);
+  --separator:      hsla(0, 0%, 100%, 0.12);
 
   /* Text */
   --text:           hsl(220, 18%, 92%);
   --text-soft:      hsl(220, 10%, 70%);
 
-  /* Accent (gold) */
-  --accent:         hsl(43, 85%, 62%);
-  --accent-dim:     hsla(43, 85%, 62%, 0.14);
-  --accent-dark:    hsl(43, 75%, 48%);
+  /* Accent (Apple-like system blue) */
+  --accent:         hsl(210, 100%, 60%); /* close to iOS blue */
+  --accent-dim:     hsla(210, 100%, 60%, 0.14);
+  --accent-dark:    hsl(210, 100%, 52%);
 
   /* Shadows */
-  --shadow:         0 18px 48px rgba(0, 0, 0, 0.34);
-  --shadow-sm:      0 6px 18px rgba(0, 0, 0, 0.22);
-  --shadow-hover:   0 22px 60px rgba(0, 0, 0, 0.38);
+  --shadow:         0 18px 50px rgba(0, 0, 0, 0.30);
+  --shadow-sm:      0 8px 20px rgba(0, 0, 0, 0.18);
+  --shadow-hover:   0 24px 60px rgba(0, 0, 0, 0.34);
 
   /* Radius / motion */
   --radius-xl:      20px;
   --radius-lg:      14px;
   --radius-md:      10px;
-  --blur-strength:  16px;
-  --transition:     0.22s ease;
+  --blur-strength:  18px;
+  --transition:     0.20s ease;
 
   /* Focus ring */
-  --ring:           0 0 0 3px hsla(43, 85%, 62%, 0.25);
+  --ring:           0 0 0 3px hsla(210, 100%, 60%, 0.22);
 }
 
 html[data-theme="light"] {
   /* Keep the same glass language; only invert luminance */
   --bg:             hsl(220, 22%, 96%);
-  --bg-blob-a:      rgba(225, 182, 73, 0.12);
-  --bg-blob-b:      rgba(87, 128, 214, 0.14);
+  --bg-blob-a:      rgba(0, 122, 255, 0.14);
+  --bg-blob-b:      rgba(175, 82, 222, 0.10);
+  --bg-blob-c:      rgba(255, 159, 10, 0.10);
 
-  --surface:        hsla(0, 0%, 100%, 0.66);
-  --surface-hi:     hsla(0, 0%, 100%, 0.78);
-  --surface-hover:  hsla(0, 0%, 100%, 0.86);
+  --surface:        hsla(0, 0%, 100%, 0.62);
+  --surface-hi:     hsla(0, 0%, 100%, 0.72);
+  --surface-hover:  hsla(0, 0%, 100%, 0.80);
 
-  --border:         hsla(220, 18%, 35%, 0.16);
+  --border:         hsla(220, 18%, 35%, 0.14);
   --border-soft:    hsla(220, 18%, 35%, 0.10);
+  --separator:      hsla(220, 18%, 35%, 0.14);
 
   --text:           hsl(222, 40%, 12%);
   --text-soft:      hsl(215, 18%, 42%);
 
-  --accent:         hsl(43, 78%, 40%);
-  --accent-dim:     hsla(43, 90%, 88%, 0.62);
-  --accent-dark:    hsl(43, 75%, 34%);
+  --accent:         hsl(211, 100%, 46%); /* iOS light blue */
+  --accent-dim:     hsla(211, 100%, 46%, 0.12);
+  --accent-dark:    hsl(211, 100%, 38%);
 
   --shadow:         0 18px 44px rgba(28, 42, 68, 0.10);
-  --shadow-sm:      0 6px 18px rgba(28, 42, 68, 0.08);
+  --shadow-sm:      0 8px 18px rgba(28, 42, 68, 0.08);
   --shadow-hover:   0 24px 60px rgba(28, 42, 68, 0.14);
 
-  --ring:           0 0 0 3px hsla(43, 78%, 40%, 0.22);
+  --ring:           0 0 0 3px hsla(211, 100%, 46%, 0.18);
 }
 
 /* ─── Reset ──────────────────────────────────────────────────── */
@@ -79,6 +83,7 @@ body {
   background:
     radial-gradient(ellipse 60% 50% at 10% 5%,  var(--bg-blob-a), transparent),
     radial-gradient(ellipse 50% 40% at 90% 10%, var(--bg-blob-b), transparent),
+    radial-gradient(ellipse 45% 35% at 55% 0%,  var(--bg-blob-c), transparent),
     var(--bg);
   min-height: 100vh;
 }
@@ -120,8 +125,8 @@ ul { list-style: none; }
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-xl);
-  backdrop-filter: blur(var(--blur-strength));
-  -webkit-backdrop-filter: blur(var(--blur-strength));
+  backdrop-filter: saturate(180%) blur(var(--blur-strength));
+  -webkit-backdrop-filter: saturate(180%) blur(var(--blur-strength));
   box-shadow: var(--shadow);
 }
 
@@ -130,8 +135,8 @@ ul { list-style: none; }
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-xl);
-  backdrop-filter: blur(var(--blur-strength));
-  -webkit-backdrop-filter: blur(var(--blur-strength));
+  backdrop-filter: saturate(180%) blur(var(--blur-strength));
+  -webkit-backdrop-filter: saturate(180%) blur(var(--blur-strength));
   box-shadow: var(--shadow);
   overflow: hidden;
 }
@@ -188,7 +193,7 @@ ul { list-style: none; }
 .sidebar--open .sidebar__more { display: block; }
 @media (min-width: 900px) { .sidebar__more { display: block; } .sidebar__toggle { display: none; } }
 
-.separator { height: 1px; background: var(--border); margin: 16px 0; }
+.separator { height: 1px; background: var(--separator); margin: 16px 0; }
 
 .contacts-list { display: flex; flex-direction: column; gap: 14px; }
 
@@ -225,8 +230,8 @@ ul { list-style: none; }
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-xl);
-  backdrop-filter: blur(var(--blur-strength));
-  -webkit-backdrop-filter: blur(var(--blur-strength));
+  backdrop-filter: saturate(180%) blur(var(--blur-strength));
+  -webkit-backdrop-filter: saturate(180%) blur(var(--blur-strength));
   box-shadow: var(--shadow-sm);
   padding: 6px 16px;
 }
@@ -272,8 +277,8 @@ ul { list-style: none; }
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-xl);
-  backdrop-filter: blur(var(--blur-strength));
-  -webkit-backdrop-filter: blur(var(--blur-strength));
+  backdrop-filter: saturate(180%) blur(var(--blur-strength));
+  -webkit-backdrop-filter: saturate(180%) blur(var(--blur-strength));
   box-shadow: var(--shadow);
   padding: 24px;
   margin-top: 16px;
