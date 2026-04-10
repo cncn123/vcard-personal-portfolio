@@ -12,17 +12,12 @@ export const ZH_CN = {
   navResume: "履历",
   navPortfolio: "作品",
   navBlog: "随笔",
-  navContact: "联系",
   langToggle: "繁體",
   themeToggle: "主题",
   aboutTitle: "关于我",
   aboutP1: "我是蔡倪（Bobby CAI Ni），现任中国移动香港公司信息技术中心-中台运营支撑的助理 IT 开发经理及大数据技术专家。",
   aboutP2:
     "我的核心职责是主导大数据应用的整体规划与落地，推动 AI 与大数据技术在客户洞察、精准营销、风险控制等核心业务场景中的应用，以提升自助化分析能力。同时，我负责统筹各部门数据需求的全生命周期管理，与业务部门协同开展关键业务领域的数据专题分析，将分析结果转化为自动化的多源数据融合报告，为管理层及业务部门提供数据驱动的决策支持。此外，我还致力于构建安全可控的数据生态合作模式，推动数据能力的产品化封装与商业化输出。",
-  aboutP3:
-    "在技术技能方面，我精通全栈开发，涵盖前端（HTML、JavaScript、CSS、C#）、后端（Java、Node.js、Python）及数据应用开发（Hive、Spark、PL/SQL、MongoDB），并具备移动端（iOS、Android）以及 Shell、AI-Python 等开发能力。",
-  aboutP4:
-    "我持有多项权威认证，包括 AWS 机器学习专家级认证、AWS 解决方案架构师认证、PMP 项目管理认证、CKA 认证、CDMP 数据管理认证、中国移动梧桐大数据助理级技能认证以及中国移动中级 AI 人才培训认证（技术方向），并入选集团 IT 专家人才库。",
   aboutP5:
     "在工作中，我始终坚持「技术驱动业务」，例如首创引入 AI 大模型优化数据治理流程，解决了地址数据标准化难题，有效支撑了精准营销策略的落地。",
   serviceTitle: "专业领域",
@@ -43,15 +38,24 @@ export const ZH_CN = {
     {
       name: "数据治理创新",
       text: "率先引入 AI 大模型优化数据治理流程，解决地址数据标准化难题，支撑精准营销落地。",
-      avatar: "/avatar-1.png",
+      icon: "governance",
     },
     {
       name: "业务赋能",
       text: "将分析结果转化为自动化多源数据融合报告，为管理层与业务部门提供数据驱动的决策支持。",
-      avatar: "/avatar-2.png",
+      icon: "impact",
     },
   ],
-  partnersTitle: "合作伙伴",
+  certShowcaseTitle: "证书展示",
+  certShowcase: [
+    "AWS 机器学习专家级认证（MLS）",
+    "AWS 解决方案架构师认证（SAA）",
+    "PMP 项目管理认证",
+    "CKA 认证",
+    "CDMP 数据管理认证",
+    "中国移动梧桐大数据助理级技能认证",
+    "中国移动中级 AI 人才培训认证（技术方向）",
+  ],
   resumeTitle: "履历",
   certsTitle: "专业认证",
   certsItemTitle: "权威认证与人才资质",
@@ -113,12 +117,5 @@ export const ZH_CN = {
       img: "/blog-3.jpg",
     },
   ],
-  contactTitle: "联系",
-  formTitle: "留言",
-  phName: "姓名",
-  phEmail: "电子邮箱",
-  phMsg: "留言内容",
-  sendBtn: "发送",
-  mapTitle: "中国香港",
 };
 

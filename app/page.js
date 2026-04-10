@@ -7,7 +7,6 @@ import About   from "./components/About";
 import Resume  from "./components/Resume";
 import Portfolio from "./components/Portfolio";
 import Blog    from "./components/Blog";
-import Contact from "./components/Contact";
 
 export default function HomePage() {
   const [locale,     setLocale]     = useState("zh-CN");
@@ -61,7 +60,6 @@ export default function HomePage() {
         {activePage === "resume"    && <Resume    t={t} />}
         {activePage === "portfolio" && <Portfolio t={t} />}
         {activePage === "blog"      && <Blog      t={t} />}
-        {activePage === "contact"   && <Contact   t={t} />}
       </div>
     </div>
   );

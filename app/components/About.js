@@ -6,24 +6,24 @@ import {
   Code2,
   Database,
   Shield,
+  ShieldCheck,
+  TrendingUp,
+  BadgeCheck,
   Quote,
   X,
 } from "lucide-react";
 
 const SERVICE_ICONS = [BrainCircuit, Code2, Database, Shield];
-const PARTNER_LOGOS = [
-  "/logo-1-color.png",
-  "/logo-2-color.png",
-  "/logo-3-color.png",
-  "/logo-4-color.png",
-  "/logo-5-color.png",
-  "/logo-6-color.png",
-];
 
 export default function About({ t }) {
   const [modal, setModal] = useState(null);
   const closeBtnRef = useRef(null);
   const lastFocusRef = useRef(null);
+
+  const HIGHLIGHT_ICONS = {
+    governance: ShieldCheck,
+    impact: TrendingUp,
+  };
 
   useEffect(() => {
     if (!modal) return;
@@ -75,8 +75,6 @@ export default function About({ t }) {
       <section className="about-text">
         <p>{t.aboutP1}</p>
         <p>{t.aboutP2}</p>
-        <p>{t.aboutP3}</p>
-        <p>{t.aboutP4}</p>
         <p>{t.aboutP5}</p>
       </section>
 
@@ -115,7 +113,18 @@ export default function About({ t }) {
                 onKeyDown={(e) => e.key === "Enter" && setModal(h)}
               >
                 <figure className="testimonials-avatar-box">
-                  <Image src={h.avatar} alt="" width={60} height={60} />
+                  {h.avatar ? (
+                    <Image src={h.avatar} alt="" width={60} height={60} />
+                  ) : (
+                    (() => {
+                      const Icon = HIGHLIGHT_ICONS[h.icon] ?? Quote;
+                      return (
+                        <div className="testimonials-avatar-icon" aria-hidden="true">
+                          <Icon size={26} />
+                        </div>
+                      );
+                    })()
+                  )}
                 </figure>
                 <h4 className="testimonials-item-title">{h.name}</h4>
                 <div className="testimonials-text">
@@ -149,7 +158,18 @@ export default function About({ t }) {
             </button>
             <div className="modal-img-wrapper">
               <figure className="modal-avatar-box">
-                <Image src={modal.avatar} alt="" width={80} height={80} />
+                {modal.avatar ? (
+                  <Image src={modal.avatar} alt="" width={80} height={80} />
+                ) : (
+                  (() => {
+                    const Icon = HIGHLIGHT_ICONS[modal.icon] ?? Quote;
+                    return (
+                      <div className="modal-avatar-icon" aria-hidden="true">
+                        <Icon size={34} />
+                      </div>
+                    );
+                  })()
+                )}
               </figure>
               <Quote size={28} className="modal-quote-icon" />
             </div>
@@ -161,15 +181,16 @@ export default function About({ t }) {
         </div>
       )}
 
-      {/* Partners */}
-      <section className="clients">
-        <h3 className="section-title">{t.partnersTitle}</h3>
-        <ul className="clients-list">
-          {PARTNER_LOGOS.map((src, i) => (
-            <li key={i} className="clients-item">
-              <a href="#">
-                <Image src={src} alt="" width={100} height={32} />
-              </a>
+      {/* Certificates showcase */}
+      <section className="certs-showcase">
+        <h3 className="section-title">{t.certShowcaseTitle ?? t.certsTitle}</h3>
+        <ul className="certs-list">
+          {(t.certShowcase ?? []).map((label) => (
+            <li key={label} className="certs-item">
+              <span className="certs-item-icon" aria-hidden="true">
+                <BadgeCheck size={16} />
+              </span>
+              <span className="certs-item-label">{label}</span>
             </li>
           ))}
         </ul>

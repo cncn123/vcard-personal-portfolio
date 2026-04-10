@@ -12,7 +12,6 @@ export const ZH_TW = {
   navResume: "履歷",
   navPortfolio: "作品",
   navBlog: "隨筆",
-  navContact: "聯絡",
   langToggle: "简体",
   themeToggle: "主題",
   aboutTitle: "關於我",
@@ -20,10 +19,6 @@ export const ZH_TW = {
     "我是蔡倪（Bobby CAI Ni），現任中國移動香港公司信息技術中心-中台運營支援的助理 IT 開發經理及大數據技術專家。",
   aboutP2:
     "我的核心職責是主導大數據應用的整體規劃與落地，推動 AI 與大數據技術在客戶洞察、精準營銷、風險控制等核心業務場景中的應用，以提升自助化分析能力。同時，我負責統籌各部門數據需求的全生命週期管理，與業務部門協同開展關鍵業務領域的數據專題分析，將分析結果轉化為自動化的多源數據融合報告，為管理層及業務部門提供數據驅動的決策支持。此外，我還致力於構建安全可控的數據生態合作模式，推動數據能力的產品化封裝與商業化輸出。",
-  aboutP3:
-    "在技術技能方面，我精通全端開發，涵蓋前端（HTML、JavaScript、CSS、C#）、後端（Java、Node.js、Python）及數據應用開發（Hive、Spark、PL/SQL、MongoDB），並具備移動端（iOS、Android）以及 Shell、AI-Python 等開發能力。",
-  aboutP4:
-    "我持有多項權威認證，包括 AWS 機器學習專家級認證、AWS 解決方案架構師認證、PMP 項目管理認證、CKA 認證、CDMP 數據管理認證、中國移動梧桐大數據助理級技能認證以及中國移動中級 AI 人才培訓認證（技術方向），並入選集團 IT 專家人才庫。",
   aboutP5:
     "在工作中，我始終堅持「技術驅動業務」，例如首創引入 AI 大模型優化數據治理流程，解決了地址數據標準化難題，有效支撐了精準營銷策略的落地。",
   serviceTitle: "專業領域",
@@ -44,15 +39,24 @@ export const ZH_TW = {
     {
       name: "數據治理創新",
       text: "率先引入 AI 大模型優化數據治理流程，解決地址數據標準化難題，支撐精準營銷落地。",
-      avatar: "/avatar-1.png",
+      icon: "governance",
     },
     {
       name: "業務賦能",
       text: "將分析結果轉化為自動化多源數據融合報告，為管理層與業務部門提供數據驅動的決策支持。",
-      avatar: "/avatar-2.png",
+      icon: "impact",
     },
   ],
-  partnersTitle: "合作夥伴",
+  certShowcaseTitle: "證書展示",
+  certShowcase: [
+    "AWS 機器學習專家級認證（MLS）",
+    "AWS 解決方案架構師認證（SAA）",
+    "PMP 專案管理認證",
+    "CKA 認證",
+    "CDMP 數據管理認證",
+    "中國移動梧桐大數據助理級技能認證",
+    "中國移動中級 AI 人才培訓認證（技術方向）",
+  ],
   resumeTitle: "履歷",
   certsTitle: "專業認證",
   certsItemTitle: "權威認證與人才資質",
@@ -114,12 +118,5 @@ export const ZH_TW = {
       img: "/blog-3.jpg",
     },
   ],
-  contactTitle: "聯絡",
-  formTitle: "留言",
-  phName: "姓名",
-  phEmail: "電子郵件",
-  phMsg: "留言內容",
-  sendBtn: "發送",
-  mapTitle: "中國香港",
 };
 

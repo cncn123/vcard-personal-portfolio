@@ -1,8 +1,8 @@
 "use client";
 import { Languages, Moon, Sun } from "lucide-react";
 
-const PAGES = ["about", "resume", "portfolio", "blog", "contact"];
-const NAV_KEYS = ["navAbout", "navResume", "navPortfolio", "navBlog", "navContact"];
+const PAGES = ["about", "resume", "portfolio", "blog"];
+const NAV_KEYS = ["navAbout", "navResume", "navPortfolio", "navBlog"];
 
 export default function Navbar({ t, activePage, setActivePage, locale, setLocale, theme, setTheme }) {
   return (
